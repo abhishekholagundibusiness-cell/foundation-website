@@ -18,8 +18,7 @@ const Counter = ({ target, label, suffix }) => {
     if (isInView) {
       let start = 0;
       const duration = 2000;
-      const increment = target / (duration / 16); // 60fps
-
+      const increment = target / (duration / 16);
       const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
@@ -29,40 +28,35 @@ const Counter = ({ target, label, suffix }) => {
           setCount(Math.ceil(start));
         }
       }, 16);
-
       return () => clearInterval(timer);
     }
   }, [isInView, target]);
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
-      className="impact-item glass-dark"
-      initial={{ opacity: 0, y: 30 }}
+      className="impact__item"
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      whileHover={{ y: -5, scale: 1.02 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="impact-number">
-        {count.toLocaleString()}{suffix}
-      </div>
-      <div className="impact-label">{label}</div>
+      <div className="impact__number">{count.toLocaleString()}{suffix}</div>
+      <div className="impact__label">{label}</div>
     </motion.div>
   );
 };
 
 const ImpactCounters = () => {
   return (
-    <section id="impact" className="impact-section">
-      <div className="impact-background"></div>
-      <div className="impact-overlay"></div>
-      <div className="container relative z-10">
-        <h2 className="section-title text-white" style={{ color: 'white' }}>Our Impact</h2>
-        
-        <div className="impact-grid">
-          {counters.map((counter, idx) => (
-            <Counter key={idx} {...counter} />
+    <section id="impact" className="impact">
+      <div className="impact__bg"></div>
+      <div className="impact__overlay"></div>
+      <div className="container impact__inner">
+        <h2 className="section-title impact__title">Our Impact</h2>
+        <div className="impact__grid">
+          {counters.map((c, idx) => (
+            <Counter key={idx} {...c} />
           ))}
         </div>
       </div>

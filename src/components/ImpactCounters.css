@@ -1,74 +1,81 @@
-.impact-section {
+/* ===== IMPACT — MOBILE FIRST ===== */
+.impact {
   position: relative;
   overflow: hidden;
-  color: white;
-  padding: 10rem 0;
+  padding: 4rem 0;
 }
 
-.impact-background {
+.impact__bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-image: url('/assets/images/hero_bg.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax effect */
   z-index: -2;
 }
 
-.impact-overlay {
+.impact__overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(5, 26, 59, 0.95) 0%, rgba(5, 26, 59, 0.8) 100%);
+  inset: 0;
+  background: rgba(0, 40, 120, 0.88);
   z-index: -1;
 }
 
-.relative {
+.impact__inner {
   position: relative;
+  z-index: 2;
 }
 
-.z-10 {
-  z-index: 10;
+.impact__title {
+  color: white !important;
+  margin-bottom: 2rem;
 }
 
-.impact-grid {
+.impact__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
 }
 
-.impact-item {
-  padding: 4rem 2rem;
+.impact__item {
   text-align: center;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 250px;
-  transition: var(--transition-normal);
+  padding: 1.5rem 0.5rem;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
-.impact-number {
-  font-family: var(--font-heading);
-  font-size: 4.5rem;
+.impact__number {
+  font-size: 2rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #FACC15 0%, #F59E0B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
-  text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.4rem;
 }
 
-.impact-label {
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.9);
+.impact__label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+  .impact {
+    padding: 6rem 0;
+  }
+  .impact__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .impact__number {
+    font-size: 3rem;
+  }
+  .impact__label {
+    font-size: 0.95rem;
+  }
+  .impact__item {
+    padding: 2.5rem 1rem;
+  }
 }

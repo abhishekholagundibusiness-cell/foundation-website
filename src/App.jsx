@@ -15,18 +15,13 @@ function App() {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowTopBtn(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setShowTopBtn(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -47,11 +42,11 @@ function App() {
       {/* Floating Action Buttons */}
       <div className="fab-container">
         {showTopBtn && (
-          <button className="fab fab-scroll-top" onClick={scrollToTop}>
+          <button className="fab fab-scroll-top" onClick={scrollToTop} aria-label="Scroll to top">
             <FaChevronUp />
           </button>
         )}
-        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="fab fab-whatsapp">
+        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="fab fab-whatsapp" aria-label="WhatsApp">
           <FaWhatsapp />
         </a>
       </div>

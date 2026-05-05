@@ -1,46 +1,59 @@
 import { motion } from 'framer-motion';
 import './Partners.css';
 
-const Partners = () => {
-  // Mock partners array
-  const partners = [
-    { name: 'LIC', desc: 'Life Insurance Corporation of India' },
-    { name: 'ICICI Foundation', desc: 'For Inclusive Growth' },
-    { name: 'GIA', desc: 'Gemological Institute' },
-    { name: 'PNB Housing', desc: 'Finance Limited' },
-    { name: 'ANZ', desc: 'Banking Group' },
-    { name: 'RITES', desc: 'The Infrastructure People' }
-  ];
+const csrPartners = [
+  { name: 'LIC', sub: 'Life Insurance Corporation' },
+  { name: 'ICICI', sub: 'Foundation' },
+  { name: 'GIA', sub: 'Gemological Institute' },
+  { name: 'ANZ', sub: 'Banking Group' },
+  { name: 'PNB', sub: 'Housing Finance' },
+  { name: 'RITES', sub: 'Infrastructure People' },
+];
 
+const programPartners = [
+  { name: 'UNICEF' },
+  { name: 'WHO' },
+  { name: 'Red Cross' },
+  { name: 'UNDP' },
+];
+
+const Partners = () => {
   return (
-    <section id="partners" className="partners-section">
+    <section id="partners" className="partners bg-light">
       <div className="container">
+        {/* CSR Partners */}
         <h2 className="section-title">Our CSR Partners</h2>
-        
-        <div className="partners-grid">
-          {partners.map((partner, index) => (
-            <motion.div 
-              key={index} 
-              className="partner-card"
+        <div className="partners__grid">
+          {csrPartners.map((p, i) => (
+            <motion.div
+              key={i}
+              className="partners__card"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
+              transition={{ duration: 0.3, delay: i * 0.04 }}
             >
-              <div className="partner-logo-placeholder">
-                <span className="partner-name">{partner.name}</span>
-                <span className="partner-desc">{partner.desc}</span>
-              </div>
+              <span className="partners__name">{p.name}</span>
+              {p.sub && <span className="partners__sub">{p.sub}</span>}
             </motion.div>
           ))}
         </div>
-        
-        <div className="carousel-dots">
-          <span className="dot active"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
+
+        {/* Program Partners */}
+        <h2 className="section-title" style={{ marginTop: '3rem' }}>Our Programme Partners</h2>
+        <div className="partners__grid partners__grid--4">
+          {programPartners.map((p, i) => (
+            <motion.div
+              key={i}
+              className="partners__card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.04 }}
+            >
+              <span className="partners__name">{p.name}</span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,28 +1,31 @@
-.about-section {
-  background-color: var(--bg-color);
+/* ===== ABOUT — MOBILE FIRST ===== */
+.about {
+  background: var(--bg-white);
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+.about__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   align-items: center;
 }
 
-.about-image-wrapper {
+/* Image column */
+.about__image-col {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
-.image-circle-container {
+.about__circle-wrap {
   position: relative;
-  width: 350px;
-  height: 350px;
-  margin-bottom: 1.5rem;
+  width: 240px;
+  height: 240px;
+  margin-bottom: 1.25rem;
 }
 
-.about-image-circle {
+.about__photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -30,126 +33,134 @@
   position: relative;
   z-index: 2;
   border: 5px solid white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-lg);
 }
 
-.decorative-circle-large {
+.about__circle-decor {
   position: absolute;
-  top: -20px;
-  left: -20px;
+  top: -15px;
+  left: -15px;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00b4d8 0%, #0066ff 100%);
+  background: linear-gradient(135deg, var(--accent), var(--primary));
   z-index: 1;
 }
 
-.decorative-circle-small {
+.about__circle-dot {
   position: absolute;
-  bottom: 20px;
-  right: -10px;
-  width: 80px;
-  height: 80px;
+  bottom: 15px;
+  right: -8px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0066ff 0%, #00b4d8 100%);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   z-index: 3;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-md);
 }
 
-.founder-info {
+.about__founder-info {
   text-align: center;
 }
 
-.founder-name {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 0.2rem;
+.about__founder-info h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
 }
 
-.founder-title {
+.about__founder-info p {
   color: var(--text-muted);
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
-.about-heading {
-  font-size: clamp(2rem, 3.5vw, 2.5rem);
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  font-weight: 800;
+/* Text column */
+.about__text-col {
+  width: 100%;
 }
 
-.about-text {
-  color: var(--text-dark);
-  font-size: 1.05rem;
-  margin-bottom: 1.2rem;
+.about__heading {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.mt-4 {
-  margin-top: 1rem;
+.about__body {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  margin-bottom: 1rem;
+  text-align: justify;
+  line-height: 1.7;
 }
 
-.about-features {
+.about__stats {
   display: flex;
-  gap: 2rem;
-  margin-top: 2.5rem;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.feature {
+.about__stat {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
-.feature-icon {
-  width: 50px;
-  height: 50px;
+.about__stat-icon {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background-color: var(--bg-light);
+  background: var(--bg-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  color: var(--primary-color);
+  font-size: 1.3rem;
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
-.feature-text-block {
-  display: flex;
-  flex-direction: column;
-}
-
-.feature-num {
-  font-size: 1.4rem;
+.about__stat-num {
+  display: block;
+  font-size: 1.25rem;
   font-weight: 800;
-  color: var(--primary-color);
+  color: var(--primary);
   line-height: 1;
 }
 
-.feature-text {
-  font-size: 0.9rem;
+.about__stat-label {
+  font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
 }
 
-@media (max-width: 992px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+  .about__grid {
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
   }
-}
-
-@media (max-width: 768px) {
-  .image-circle-container {
-    width: 280px;
-    height: 280px;
+  .about__image-col {
+    width: auto;
+    flex-shrink: 0;
   }
-  .about-features {
-    flex-direction: column;
-    gap: 1.5rem;
+  .about__circle-wrap {
+    width: 320px;
+    height: 320px;
   }
-  .about-heading {
-    text-align: center;
+  .about__text-col {
+    flex: 1;
   }
-  .about-text {
-    text-align: justify;
+  .about__heading {
+    font-size: 2rem;
+    text-align: left;
+  }
+  .about__body {
+    text-align: left;
+  }
+  .about__stats {
+    flex-direction: row;
+    gap: 2rem;
   }
 }
