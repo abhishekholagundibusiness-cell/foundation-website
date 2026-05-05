@@ -26,8 +26,8 @@ const Navbar = () => {
 
   return (
     <motion.header
-      initial={{ y: -100, x: "-50%" }}
-      animate={{ y: 0, x: "-50%" }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`navbar-wrapper ${isScrolled ? 'scrolled glass' : ''}`}
     >
