@@ -131,21 +131,32 @@
   .mobile-menu-btn {
     display: block;
   }
+}
+
+@media (max-width: 768px) {
   .navbar-wrapper {
-    width: 95%;
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    border-radius: 0;
     padding: 1rem 1.5rem;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+  .logo {
+    font-size: 1.3rem;
+  }
+  .logo-icon {
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 480px) {
   .logo {
-    font-size: 1.2rem;
-  }
-  .logo-icon {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
   }
   .navbar-wrapper {
-    width: 98%;
     padding: 0.8rem 1rem;
   }
 }
