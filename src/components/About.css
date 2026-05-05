@@ -1,0 +1,140 @@
+.about-section {
+  background-color: var(--bg-color);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-image-container {
+  position: relative;
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.image-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+  border-radius: 20px;
+  z-index: 1;
+  transform: translate(-15px, -15px);
+}
+
+.about-image {
+  position: relative;
+  z-index: 2;
+  border-radius: 16px;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-slow);
+}
+
+.about-image:hover {
+  transform: translateY(-10px);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 40px;
+  right: -20px;
+  z-index: 3;
+  padding: 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.experience-badge .years {
+  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.about-heading {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.about-text {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-features {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.feature-text {
+  font-weight: 600;
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .about-image {
+    height: 400px;
+  }
+  
+  .experience-badge {
+    right: 20px;
+    bottom: -20px;
+  }
+}
