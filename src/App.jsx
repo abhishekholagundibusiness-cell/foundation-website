@@ -4,7 +4,9 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import ImpactCounters from './components/ImpactCounters';
+import Expenses from './components/Expenses';
 import Partners from './components/Partners';
+import Testimonials from './components/Testimonials';
 import Media from './components/Media';
 import Footer from './components/Footer';
 import { FaWhatsapp, FaChevronUp } from 'react-icons/fa';
@@ -35,7 +37,9 @@ function App() {
         <About />
         <Services />
         <ImpactCounters />
+        <Expenses />
         <Partners />
+        <Testimonials />
         <Media />
       </main>
       <Footer />
