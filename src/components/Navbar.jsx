@@ -10,44 +10,28 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'What We Do', href: '#services' },
-    { name: 'Our Impact', href: '#impact' },
-    { name: 'Partners', href: '#partners' },
-  ];
-
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`navbar-wrapper ${isScrolled ? 'scrolled glass' : ''}`}
-    >
-      <div className="container navbar">
+    <header className={`navbar-header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="navbar container">
         <a href="#home" className="logo">
           <FaHandsHoldingChild className="logo-icon" />
           Anjanadevi<span>Foundation</span>
         </a>
 
-        {/* Desktop Nav */}
+        {/* Desktop Menu */}
         <nav className="desktop-nav">
           <ul className="nav-links">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a href={link.href}>{link.name}</a>
-              </li>
-            ))}
-            <li>
-              <a href="#donate" className="btn btn-secondary nav-btn">Donate Now</a>
-            </li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">What We Do</a></li>
+            <li><a href="#impact">Our Impact</a></li>
+            <li><a href="#partners">Partners</a></li>
           </ul>
         </nav>
 
@@ -58,51 +42,29 @@ const Navbar = () => {
         >
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
-
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: '100vh' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="mobile-nav glass"
-            >
-              <ul className="mobile-nav-links">
-                {navLinks.map((link) => (
-                  <motion.li 
-                    key={link.name}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <a 
-                      href={link.href} 
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </a>
-                  </motion.li>
-                ))}
-                <motion.li
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <a 
-                    href="#donate" 
-                    className="btn btn-secondary"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Donate Now
-                  </a>
-                </motion.li>
-              </ul>
-            </motion.nav>
-          )}
-        </AnimatePresence>
       </div>
-    </motion.header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.nav 
+            className="mobile-nav"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="mobile-nav-links">
+              <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+              <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About Us</a>
+              <a href="#services" onClick={() => setIsMobileMenuOpen(false)}>What We Do</a>
+              <a href="#impact" onClick={() => setIsMobileMenuOpen(false)}>Our Impact</a>
+              <a href="#partners" onClick={() => setIsMobileMenuOpen(false)}>Partners</a>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
   );
 };
 

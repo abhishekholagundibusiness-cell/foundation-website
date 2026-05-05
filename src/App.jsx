@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -6,8 +7,26 @@ import ImpactCounters from './components/ImpactCounters';
 import Partners from './components/Partners';
 import Media from './components/Media';
 import Footer from './components/Footer';
+import { FaWhatsapp, FaChevronUp } from 'react-icons/fa';
 
 function App() {
+  const [showTopBtn, setShowTopBtn] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowTopBtn(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <Navbar />
@@ -20,6 +39,18 @@ function App() {
         <Media />
       </main>
       <Footer />
+
+      {/* Floating Action Buttons */}
+      <div className="fab-container">
+        {showTopBtn && (
+          <button className="fab fab-scroll-top" onClick={scrollToTop}>
+            <FaChevronUp />
+          </button>
+        )}
+        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="fab fab-whatsapp">
+          <FaWhatsapp />
+        </a>
+      </div>
     </>
   );
 }

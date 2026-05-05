@@ -4,41 +4,43 @@ import './Partners.css';
 const Partners = () => {
   // Mock partners array
   const partners = [
-    { name: 'TechCorp CSR', type: 'CSR' },
-    { name: 'Global Bank India', type: 'CSR' },
-    { name: 'BuildWell Ind.', type: 'CSR' },
-    { name: 'GreenEnergy Ltd', type: 'CSR' },
-    { name: 'Local NGO Alliance', type: 'Programme' },
-    { name: 'EduCare Trust', type: 'Programme' },
-    { name: 'HealthFirst Org', type: 'Programme' },
+    { name: 'LIC', desc: 'Life Insurance Corporation of India' },
+    { name: 'ICICI Foundation', desc: 'For Inclusive Growth' },
+    { name: 'GIA', desc: 'Gemological Institute' },
+    { name: 'PNB Housing', desc: 'Finance Limited' },
+    { name: 'ANZ', desc: 'Banking Group' },
+    { name: 'RITES', desc: 'The Infrastructure People' }
   ];
 
   return (
     <section id="partners" className="partners-section">
       <div className="container">
-        <h2 className="section-title">Our Partners</h2>
+        <h2 className="section-title">Our CSR Partners</h2>
         
-        <div className="partners-carousel-container">
-          <motion.div 
-            className="partners-track"
-            animate={{ x: [0, -1000] }}
-            transition={{ 
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 20,
-                ease: "linear",
-              },
-            }}
-          >
-            {/* Double the array for seamless infinite scroll */}
-            {[...partners, ...partners].map((partner, index) => (
-              <div key={index} className="partner-logo-box glass">
+        <div className="partners-grid">
+          {partners.map((partner, index) => (
+            <motion.div 
+              key={index} 
+              className="partner-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+            >
+              <div className="partner-logo-placeholder">
                 <span className="partner-name">{partner.name}</span>
-                <span className="partner-badge">{partner.type}</span>
+                <span className="partner-desc">{partner.desc}</span>
               </div>
-            ))}
-          </motion.div>
+            </motion.div>
+          ))}
+        </div>
+        
+        <div className="carousel-dots">
+          <span className="dot active"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
         </div>
       </div>
     </section>

@@ -11,31 +11,22 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8 }}
         >
-          <motion.div 
-            className="hero-badge glass"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            <span>✨</span> Inspiring change since 2011
-          </motion.div>
-
           <motion.h1 
             className="hero-title"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Building a <span className="highlight">Brighter Future</span> Together
+            Building a Brighter Future Together
           </motion.h1>
           
           <motion.p 
             className="hero-subtitle"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             Empowering individuals, transforming communities, and creating sustainable impact for generations to come. Join the revolution.
           </motion.p>
@@ -44,10 +35,10 @@ const Hero = () => {
             className="hero-cta"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <a href="#about" className="btn btn-secondary">Discover Our Story</a>
-            <a href="#services" className="btn btn-outline">Our Initiatives</a>
+            <a href="#about" className="btn btn-primary">Discover Our Story</a>
+            <a href="#services" className="btn btn-primary" style={{backgroundColor: '#1f2937'}}>Our Initiatives</a>
           </motion.div>
         </motion.div>
       </div>
