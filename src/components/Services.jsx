@@ -1,31 +1,43 @@
 import { motion } from 'framer-motion';
-import { FaBookOpen, FaHeartbeat, FaSeedling, FaHandsHelping } from 'react-icons/fa';
+import { FaCheck } from 'react-icons/fa';
 import './Services.css';
 
 const services = [
   {
-    icon: <FaBookOpen />,
-    title: 'Education for All',
-    description: 'Providing access to quality education, scholarships, and skill development programs for underprivileged children.',
-    color: '#0A58CA'
+    title: 'Education\nfor All',
+    points: [
+      'Quality education access',
+      'Scholarship programs',
+      'Skill development initiatives'
+    ],
+    gradient: 'linear-gradient(135deg, #FFBE0B 0%, #FB5607 100%)'
   },
   {
-    icon: <FaHeartbeat />,
-    title: 'Healthcare Access',
-    description: 'Organizing medical camps, supporting vital treatments, and promoting health awareness in marginalized communities.',
-    color: '#e63946'
+    title: 'Healthcare\nAccess',
+    points: [
+      'Free medical camps',
+      'Vital treatments support',
+      'Health awareness drives'
+    ],
+    gradient: 'linear-gradient(135deg, #FB5607 0%, #FF006E 100%)'
   },
   {
-    icon: <FaSeedling />,
-    title: 'Environmental Care',
-    description: 'Leading tree plantation drives, water conservation projects, and promoting eco-friendly practices.',
-    color: '#20C997'
+    title: 'Environmental\nCare',
+    points: [
+      'Tree plantation drives',
+      'Water conservation projects',
+      'Eco-friendly practices'
+    ],
+    gradient: 'linear-gradient(135deg, #FF006E 0%, #8338EC 100%)'
   },
   {
-    icon: <FaHandsHelping />,
-    title: 'Women Empowerment',
-    description: 'Facilitating vocational training and micro-finance initiatives to help women achieve financial independence.',
-    color: '#f59e0b'
+    title: 'Women\nEmpowerment',
+    points: [
+      'Vocational training',
+      'Micro-finance support',
+      'Financial independence'
+    ],
+    gradient: 'linear-gradient(135deg, #8338EC 0%, #3A86FF 100%)'
   }
 ];
 
@@ -33,9 +45,10 @@ const Services = () => {
   return (
     <section id="services" className="services bg-light">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" style={{ textAlign: 'center' }}>
           <motion.span 
             className="section-tag"
+            style={{ color: '#FB5607', backgroundColor: 'rgba(251, 86, 7, 0.1)', borderColor: 'transparent' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -49,7 +62,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            What We Do
+            Choose Your Path to <span className="services__highlight">Impact</span>
           </motion.h2>
           <motion.p 
             className="section-subtitle"
@@ -58,7 +71,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            We focus our efforts on four key pillars to create sustainable, long-term impact in communities.
+            Initiatives designed to transform communities and create a sustainable future
           </motion.p>
         </div>
 
@@ -72,12 +85,24 @@ const Services = () => {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="services__icon" style={{ backgroundColor: `${s.color}15`, color: s.color }}>
-                {s.icon}
+              <div className="services__card-top" style={{ background: s.gradient }}>
+                <h3 className="services__card-title">{s.title}</h3>
               </div>
-              <h3 className="services__card-title">{s.title}</h3>
-              <p className="services__card-desc">{s.description}</p>
-              <div className="services__card-accent" style={{ backgroundColor: s.color }}></div>
+              <div className="services__card-bottom">
+                <ul className="services__features">
+                  {s.points.map((point, idx) => (
+                    <li key={idx}>
+                      <FaCheck className="services__check" /> {point}
+                    </li>
+                  ))}
+                </ul>
+                <div className="services__seats">
+                  <span className="services__seats-dot"></span> Impacting 1000+ lives
+                </div>
+                <button className="btn btn-primary services__btn">
+                  Learn More <span>→</span>
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>

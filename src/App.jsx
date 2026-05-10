@@ -27,7 +27,6 @@ function App() {
 
   return (
     <>
-      <BackgroundAnimation />
       <Navbar />
       <main>
         <Hero />

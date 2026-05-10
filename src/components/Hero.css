@@ -6,101 +6,184 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-top: 80px; /* Offset for navbar */
-  /* Remove backgrounds entirely to show animated blobs */
+  padding-top: 100px;
+  padding-bottom: 4rem;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--gradient-dark)), url('/assets/images/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  width: 100%;
 }
 
 .hero__content {
-  text-align: center;
-  padding: 3rem 1.5rem;
+  text-align: left;
   z-index: 10;
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
 }
 
 .hero__tag {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 190, 11, 0.4);
+  padding: 0.5rem 1rem;
   border-radius: var(--radius-full);
   font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
   margin-bottom: 1.5rem;
   color: var(--primary);
-  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+}
+
+.hero__tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
 }
 
 .hero__title {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: 900;
-  color: var(--text-dark);
-  margin-bottom: 1.25rem;
+  color: white;
+  margin-bottom: 1.5rem;
   line-height: 1.1;
   letter-spacing: -1px;
 }
 
-.hero__subtitle {
-  font-size: 1.125rem;
-  font-weight: 500;
+.hero__highlight {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.hero__highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero__features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 2.5rem;
-  opacity: 0.9;
-  line-height: 1.7;
-  max-width: 600px;
-  color: var(--text-body);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+}
+
+.hero__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.hero__icon {
+  color: var(--primary);
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .hero__cta {
   display: flex;
+}
+
+/* Form Card */
+.hero__form-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.hero__form-card h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.hero__form-card p {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.hero__form {
+  display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: stretch;
-  width: 100%;
 }
 
-.hero__cta .btn {
+.hero__form input {
   width: 100%;
-  font-size: 1.125rem;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  transition: border-color 0.2s ease;
 }
 
-/* Glassmorphic secondary button */
-.hero__cta .btn-outline {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--primary);
+.hero__form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.hero__form-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.hero__form-terms {
+  text-align: center;
+  font-size: 0.75rem !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 0 !important;
+  margin-top: 0.5rem;
+}
+
+.hero__form-terms span {
   color: var(--primary);
-}
-.hero__cta .btn-outline:hover {
-  background: var(--primary);
-  color: white;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* ===== DESKTOP ===== */
 @media (min-width: 768px) {
-  .hero {
-    min-height: 100vh;
+  .hero__grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 4rem;
   }
   .hero__title {
-    font-size: 5rem;
+    font-size: 4rem;
   }
-  .hero__subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-  }
-  .hero__cta {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5rem;
-    width: auto;
-  }
-  .hero__cta .btn {
-    width: auto;
+  .hero__features {
+    font-size: 1.15rem;
   }
 }
