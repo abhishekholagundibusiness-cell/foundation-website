@@ -23,7 +23,7 @@
 .partners__card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(10, 88, 202, 0.1);
+  border-color: rgba(255, 190, 11, 0.3);
 }
 
 .partners__logo-placeholder {

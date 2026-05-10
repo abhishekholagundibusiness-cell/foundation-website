@@ -32,7 +32,7 @@
   letter-spacing: -0.5px;
 }
 .footer__logo span {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .footer__desc {
@@ -64,6 +64,7 @@
   background: var(--primary);
   transform: translateY(-3px);
   border-color: var(--primary);
+  color: var(--text-dark);
 }
 
 .footer__col-title {
@@ -84,7 +85,7 @@
   display: inline-block;
 }
 .footer__links a:hover {
-  color: var(--accent);
+  color: var(--primary);
   transform: translateX(5px);
 }
 
@@ -98,7 +99,7 @@
 }
 
 .footer__contact-icon {
-  color: var(--accent);
+  color: var(--primary);
   margin-top: 0.25rem;
   flex-shrink: 0;
   font-size: 1.1rem;
