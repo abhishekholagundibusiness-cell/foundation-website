@@ -19,13 +19,13 @@ const services = [
     icon: <FaSeedling />,
     title: 'Environmental Care',
     description: 'Leading tree plantation drives, water conservation projects, and promoting eco-friendly practices.',
-    image: '/assets/images/banner.jpeg'
+    image: '/assets/images/service_environment.png'
   },
   {
     icon: <FaHandsHelping />,
     title: 'Women Empowerment',
     description: 'Facilitating vocational training and micro-finance initiatives to help women achieve financial independence.',
-    image: '/assets/images/owner_photo.jpeg'
+    image: '/assets/images/service_women.png'
   }
 ];
 

@@ -5,17 +5,17 @@ import './Media.css';
 
 const mediaItems = [
   {
-    image: '/assets/images/banner.jpeg',
+    image: '/assets/images/media_scholarship.png',
     title: 'Empowering Digital Futures on Wheels!',
     desc: 'The foundation recently announced a comprehensive scholarship program aiming to support 1000 rural students in digital education.',
   },
   {
-    image: '/assets/images/hero_bg.png',
+    image: '/assets/images/service_healthcare.png',
     title: 'Awarded for Excellence in Community Service',
     desc: 'Recognized at the National NGO Summit for outstanding contributions to rural healthcare development.',
   },
   {
-    image: '/assets/images/owner_photo.jpeg',
+    image: '/assets/images/media_award_ceremony.png',
     title: 'DH Changemaker 20 in 2020',
     desc: 'Our founder was honored as one of the top 20 changemakers by Deccan Herald for transformative social impact.',
   },
@@ -137,7 +137,7 @@ const Media = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
                   <div className="awards__circle">
-                    <img src="/assets/images/banner.jpeg" alt={a} className="awards__circle-img" />
+                    <img src={`/assets/images/${['media_award_ceremony', 'award_trophy', 'award_community'][i]}.png`} alt={a} className="awards__circle-img" />
                   </div>
                   <p className="awards__label">{a}</p>
                 </motion.div>
