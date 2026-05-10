@@ -1,26 +1,13 @@
-/* ===== IMPACT — MOBILE FIRST ===== */
+/* ===== IMPACT ===== */
 .impact {
   position: relative;
   overflow: hidden;
   padding: 5rem 0;
+  background: var(--bg-dark);
 }
 
-.impact__bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('/assets/images/impact_bg.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  z-index: -2;
-}
-
-.impact__overlay {
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-dark);
-  z-index: -1;
-}
+.impact__bg { display: none; }
+.impact__overlay { display: none; }
 
 .impact__inner {
   position: relative;
@@ -33,10 +20,9 @@
 }
 
 .impact__tag {
-  background: rgba(255, 190, 11, 0.15);
-  color: var(--primary);
-  border: 1px solid rgba(255, 190, 11, 0.3);
-  backdrop-filter: blur(4px);
+  background: rgba(200, 150, 62, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(200, 150, 62, 0.25);
 }
 
 .impact__title {
@@ -47,23 +33,22 @@
 .impact__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .impact__item {
   text-align: center;
   padding: 2rem 1rem;
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, background 0.3s ease;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
 }
 
 .impact__item:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 190, 11, 0.3);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(200, 150, 62, 0.3);
+  transform: translateY(-4px);
 }
 
 .impact__number {
@@ -76,30 +61,18 @@
 }
 
 .impact__label {
-  font-size: 0.9rem;
-  color: var(--primary);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 /* ===== DESKTOP ===== */
 @media (min-width: 768px) {
-  .impact {
-    padding: 7rem 0;
-  }
-  .impact__grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2.5rem;
-  }
-  .impact__number {
-    font-size: 3.5rem;
-  }
-  .impact__label {
-    font-size: 1rem;
-  }
-  .impact__item {
-    padding: 3rem 1.5rem;
-  }
+  .impact { padding: 7rem 0; }
+  .impact__grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+  .impact__number { font-size: 3.5rem; }
+  .impact__label { font-size: 0.85rem; }
+  .impact__item { padding: 3rem 1.5rem; }
 }
-
