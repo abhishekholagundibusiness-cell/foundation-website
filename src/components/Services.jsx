@@ -7,7 +7,7 @@ const services = [
     icon: <FaBookOpen />,
     title: 'Education for All',
     description: 'Providing access to quality education, scholarships, and skill development programs for underprivileged children.',
-    color: '#0066ff'
+    color: '#0A58CA'
   },
   {
     icon: <FaHeartbeat />,
@@ -19,7 +19,7 @@ const services = [
     icon: <FaSeedling />,
     title: 'Environmental Care',
     description: 'Leading tree plantation drives, water conservation projects, and promoting eco-friendly practices.',
-    color: '#10B981'
+    color: '#20C997'
   },
   {
     icon: <FaHandsHelping />,
@@ -33,10 +33,34 @@ const Services = () => {
   return (
     <section id="services" className="services bg-light">
       <div className="container">
-        <h2 className="section-title">What We Do</h2>
-        <p className="section-subtitle">
-          We focus our efforts on four key pillars to create sustainable, long-term impact in communities.
-        </p>
+        <div className="section-header">
+          <motion.span 
+            className="section-tag"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Our Initiatives
+          </motion.span>
+          <motion.h2 
+            className="section-title"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            What We Do
+          </motion.h2>
+          <motion.p 
+            className="section-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            We focus our efforts on four key pillars to create sustainable, long-term impact in communities.
+          </motion.p>
+        </div>
 
         <div className="services__grid">
           {services.map((s, i) => (

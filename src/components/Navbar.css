@@ -4,15 +4,21 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 64px;
-  background: var(--bg-white);
+  height: 80px;
+  background: transparent;
   z-index: 9000;
-  transition: box-shadow 0.3s ease;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
 }
 
 .navbar--scrolled {
-  box-shadow: var(--shadow-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--glass-shadow);
+  border-bottom: var(--glass-border);
+  height: 70px; /* Slightly shrink on scroll */
 }
 
 .navbar__inner {
@@ -20,6 +26,7 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  width: 100%;
 }
 
 /* Logo */
@@ -27,21 +34,34 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-dark);
   flex-shrink: 0;
+  font-family: var(--font-heading);
+  letter-spacing: -0.5px;
+}
+
+/* Change logo color to white when at top, except for mobile where it's hard */
+.navbar:not(.navbar--scrolled) .navbar__logo {
+  color: white;
 }
 
 .navbar__logo span {
-  color: var(--text-muted);
+  color: var(--primary-light);
   font-weight: 500;
+}
+.navbar--scrolled .navbar__logo span {
+  color: var(--text-muted);
 }
 
 .navbar__logo-icon {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--accent);
   flex-shrink: 0;
+}
+.navbar--scrolled .navbar__logo-icon {
+  color: var(--primary);
 }
 
 /* Desktop nav — hidden on mobile */
@@ -56,57 +76,71 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
   font-size: 1.5rem;
-  color: var(--text-dark);
+  color: white;
   cursor: pointer;
   flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.navbar--scrolled .navbar__hamburger {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-dark);
 }
 
 /* Mobile overlay */
 .navbar__mobile-overlay {
   position: fixed;
-  top: 64px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 64px);
+  height: 100vh;
   background: var(--bg-white);
   z-index: 8999;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding-top: 3rem;
 }
 
 .navbar__mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1.5rem;
   width: 100%;
+  padding: 0 2rem;
 }
 
 .navbar__mobile-link {
   display: block;
   text-align: center;
-  padding: 1.1rem 1.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-dark);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  transition: background 0.15s ease;
+  font-family: var(--font-heading);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
 }
 
 .navbar__mobile-link:hover,
 .navbar__mobile-link:active {
-  background: var(--bg-light);
+  background: var(--primary-light);
   color: var(--primary);
+  transform: scale(1.05);
 }
 
 /* ===== DESKTOP ===== */
 @media (min-width: 768px) {
   .navbar {
+    height: 90px;
+  }
+  .navbar--scrolled {
     height: 80px;
   }
 
@@ -117,26 +151,53 @@
   .navbar__desktop {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .navbar__link {
     font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    transition: color 0.2s ease;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease;
     white-space: nowrap;
+    position: relative;
+  }
+
+  .navbar--scrolled .navbar__link {
+    color: var(--text-dark);
+  }
+
+  .navbar__link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .navbar--scrolled .navbar__link::after {
+    background: var(--primary);
+  }
+
+  .navbar__link:hover::after {
+    width: 100%;
   }
 
   .navbar__link:hover {
+    color: var(--accent-light);
+  }
+  .navbar--scrolled .navbar__link:hover {
     color: var(--primary);
   }
 
   .navbar__logo {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .navbar__logo-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 }

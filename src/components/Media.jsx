@@ -42,7 +42,25 @@ const Media = () => {
       {/* Media Coverage — Horizontal Carousel on mobile */}
       <section id="media" className="media">
         <div className="container">
-          <h2 className="section-title">Media Coverage</h2>
+          <div className="section-header">
+            <motion.span 
+              className="section-tag"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              In The News
+            </motion.span>
+            <motion.h2 
+              className="section-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              Media Coverage
+            </motion.h2>
+          </div>
 
           <div className="media__carousel-wrap">
             <button className="media__arrow media__arrow--left" onClick={() => scroll('left')}><FaChevronLeft /></button>
@@ -52,8 +70,8 @@ const Media = () => {
                 <motion.div
                   key={i}
                   className="media__card"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                 >
@@ -87,7 +105,23 @@ const Media = () => {
           <div className="awards__header-bg"></div>
           <div className="awards__header-overlay"></div>
           <div className="container">
-            <h2 className="awards__heading">Awards</h2>
+            <motion.span 
+              className="section-tag awards__tag"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              Recognitions
+            </motion.span>
+            <motion.h2 
+              className="awards__heading"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              Awards & Honors
+            </motion.h2>
           </div>
         </div>
         <div className="awards__body">
@@ -97,10 +131,10 @@ const Media = () => {
                 <motion.div
                   key={i}
                   className="awards__item"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
                   <div className="awards__circle">
                     <img src="/assets/images/banner.jpeg" alt={a} className="awards__circle-img" />
