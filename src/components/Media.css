@@ -133,7 +133,7 @@
 .awards__header-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(10,88,202,0.9), rgba(32,201,151,0.85));
+  background: linear-gradient(to right, rgba(79, 70, 229, 0.9), rgba(13, 148, 136, 0.85));
   z-index: -1;
   backdrop-filter: blur(4px);
 }

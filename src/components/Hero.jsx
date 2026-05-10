@@ -29,14 +29,6 @@ const itemVariants = {
 const Hero = () => {
   return (
     <section id="home" className="hero">
-      <motion.div 
-        className="hero__bg"
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      />
-      <div className="hero__overlay" />
-
       <div className="container">
         <motion.div 
           className="hero__content"

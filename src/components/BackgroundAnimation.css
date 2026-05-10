@@ -1,0 +1,93 @@
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -9999;
+  background-color: #f8fafc;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-blob {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.6;
+  border-radius: 50%;
+  animation: float 20s infinite ease-in-out alternate;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: rgba(79, 70, 229, 0.4); /* Indigo */
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  top: 40%;
+  right: -20%;
+  width: 60vw;
+  height: 60vw;
+  background: rgba(236, 72, 153, 0.3); /* Pink */
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  bottom: -20%;
+  left: 20%;
+  width: 55vw;
+  height: 55vw;
+  background: rgba(20, 184, 166, 0.3); /* Teal */
+  animation-delay: -10s;
+}
+
+.blob-4 {
+  top: 20%;
+  left: 30%;
+  width: 40vw;
+  height: 40vw;
+  background: rgba(245, 158, 11, 0.2); /* Amber */
+  animation-delay: -15s;
+}
+
+.bg-noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(5vw, -5vh) scale(1.1) rotate(5deg);
+  }
+  66% {
+    transform: translate(-5vw, 5vh) scale(0.9) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .bg-blob {
+    filter: blur(60px);
+  }
+  .blob-1 { width: 80vw; height: 80vw; }
+  .blob-2 { width: 90vw; height: 90vw; }
+  .blob-3 { width: 85vw; height: 85vw; }
+  .blob-4 { width: 70vw; height: 70vw; }
+}

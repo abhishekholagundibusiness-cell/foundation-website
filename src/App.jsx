@@ -9,6 +9,7 @@ import Partners from './components/Partners';
 import Testimonials from './components/Testimonials';
 import Media from './components/Media';
 import Footer from './components/Footer';
+import BackgroundAnimation from './components/BackgroundAnimation';
 import { FaWhatsapp, FaChevronUp } from 'react-icons/fa';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <>
+      <BackgroundAnimation />
       <Navbar />
       <main>
         <Hero />
