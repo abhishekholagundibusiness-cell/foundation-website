@@ -42,26 +42,21 @@
   letter-spacing: -0.5px;
 }
 
-/* Change logo color to white when at top, except for mobile where it's hard */
-.navbar:not(.navbar--scrolled) .navbar__logo {
-  color: white;
-}
-
 .navbar__logo span {
-  color: var(--primary-light);
-  font-weight: 500;
+  color: var(--primary);
+  font-weight: 700;
 }
 .navbar--scrolled .navbar__logo span {
-  color: var(--text-muted);
+  color: var(--primary-dark);
 }
 
 .navbar__logo-icon {
   font-size: 1.8rem;
-  color: var(--accent);
+  color: var(--primary);
   flex-shrink: 0;
 }
 .navbar--scrolled .navbar__logo-icon {
-  color: var(--primary);
+  color: var(--primary-dark);
 }
 
 /* Desktop nav — hidden on mobile */
@@ -76,12 +71,12 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.05);
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(15, 23, 42, 0.1);
   border-radius: var(--radius-sm);
   font-size: 1.5rem;
-  color: white;
+  color: var(--text-dark);
   cursor: pointer;
   flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
@@ -157,14 +152,16 @@
   .navbar__link {
     font-weight: 600;
     font-size: 1rem;
-    color: white;
+    color: var(--text-dark);
     transition: all 0.3s ease;
     white-space: nowrap;
     position: relative;
+    opacity: 0.85;
   }
 
   .navbar--scrolled .navbar__link {
     color: var(--text-dark);
+    opacity: 1;
   }
 
   .navbar__link::after {
@@ -174,12 +171,8 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-  }
-
-  .navbar--scrolled .navbar__link::after {
     background: var(--primary);
+    transition: width 0.3s ease;
   }
 
   .navbar__link:hover::after {
@@ -187,7 +180,8 @@
   }
 
   .navbar__link:hover {
-    color: var(--accent-light);
+    color: var(--primary);
+    opacity: 1;
   }
   .navbar--scrolled .navbar__link:hover {
     color: var(--primary);
@@ -201,3 +195,4 @@
     font-size: 2.2rem;
   }
 }
+
